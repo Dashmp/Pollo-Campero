@@ -1,0 +1,125 @@
+<div class="cart-container">
+  <div class="modal-overlay" *ngIf="showConfirmModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <i class="fas fa-exclamation-triangle"></i>
+        <h3>¿Eliminar Producto?</h3>
+      </div>
+      <p>Hola <strong>{{ authService.getUserName() }}</strong>, ¿deseas eliminar <em>{{ itemAEliminar?.producto.nombre }}</em> de tu pedido?</p>
+      <div class="modal-actions">
+        <button class="btn-cancel" (click)="confirmarEliminacion(false)">No, mantener</button>
+        <button class="btn-confirm" (click)="confirmarEliminacion(true)">Sí, eliminar</button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="!mostrarTicket && !mostrarMetodoPago">
+    <h1 class="cart-title">TU PEDIDO</h1>
+
+    <div class="cart-content" *ngIf="items.length > 0; else vacio">
+      <div class="cart-items-list">
+        <div class="cart-item" *ngFor="let item of items">
+          <img [src]="item.producto.imagen_url" class="item-img" [alt]="item.producto.nombre">
+          <div class="item-info">
+            <h3>{{ item.producto.nombre }}</h3>
+            <p>${{ item.producto.precio | number:'1.2-2' }}</p>
+          </div>
+          <div class="item-controls">
+            <button (click)="cambiarCantidad(item, -1)">-</button>
+            <span>{{ item.cantidad }}</span>
+            <button (click)="cambiarCantidad(item, 1)">+</button>
+          </div>
+          <button class="btn-remove" (click)="eliminarItem(item)">
+            <i class="fas fa-trash"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="cart-summary">
+        <div class="summary-line total">
+          <span>TOTAL:</span> <span>${{ total | number:'1.2-2' }}</span>
+        </div>
+        <button class="btn-checkout" (click)="iniciarCheckout()">IR A PAGAR</button>
+      </div>
+    </div>
+
+    <ng-template #vacio>
+      <div class="empty-cart">
+        <p>Tu carrito está vacío</p>
+        <button class="btn-return" routerLink="/productos">VER MENÚ</button>
+      </div>
+    </ng-template>
+  </div>
+
+  <div class="payment-view" *ngIf="mostrarMetodoPago && !mostrarTicket">
+    <div class="payment-card">
+      <h2 class="payment-title">MÉTODO DE PAGO</h2>
+      <p class="payment-subtitle">Monto a cancelar: <strong>${{ total | number:'1.2-2' }}</strong></p>
+
+      <div class="payment-options">
+        <button class="btn-pay-option" [class.selected]="metodoPago === 'tarjeta'"
+          (click)="seleccionarMetodo('tarjeta')">
+          <i class="fas fa-credit-card"></i> Tarjeta (Simulación)
+        </button>
+        <button class="btn-pay-option" [class.selected]="metodoPago === 'qr'" (click)="seleccionarMetodo('qr')">
+          <i class="fas fa-qrcode"></i> Pago con QR / Transferencia
+        </button>
+      </div>
+
+      <div class="payment-details" *ngIf="metodoPago === 'tarjeta'">
+        <p class="warning-text"><i class="fas fa-info-circle"></i> Esta es una simulación temporal.</p>
+        <input type="text" class="dummy-input" placeholder="Número de Tarjeta ficticia..." disabled>
+        <button class="btn-confirm-pay" (click)="procesarPago()">SIMULAR PAGO Y VER TICKET</button>
+      </div>
+
+      <div class="payment-details qr-payment" *ngIf="metodoPago === 'qr'">
+        <p>Escanea este código desde tu App Bancaria:</p>
+        <img [src]="miQrDeCobroUrl" alt="QR de Pago" class="store-qr-img">
+        <p class="warning-text">Una vez realizada la transferencia, confirma tu pago.</p>
+        <button class="btn-confirm-pay" (click)="procesarPago()">YA TRANSFERÍ (VER TICKET)</button>
+      </div>
+
+      <button class="btn-cancel-pay" (click)="mostrarMetodoPago = false; metodoPago = null">Volver al carrito</button>
+    </div>
+  </div>
+
+  <div class="ticket-view" *ngIf="mostrarTicket">
+
+    <div class="ticket-card" id="ticket-pdf-content">
+      <div class="ticket-header">
+        <img src="assets/logo/Pollo_Campero_Logo-2024.webp" alt="Logo Campero">
+        <p>Sabor tierno, jugoso y crujiente</p>
+        <div class="ticket-divider"></div>
+        <p class="ticket-digital-text">TICKET DIGITAL</p>
+
+        <p class="ticket-date">Cliente: <strong>{{ nombreCliente }}</strong></p>
+
+        <p class="ticket-date">#{{ numeroTicket }} | {{ fechaActual | date:'medium' }}</p>
+        <div class="ticket-divider"></div>
+      </div>
+
+      <div class="ticket-body">
+        <div class="ticket-row" *ngFor="let item of items">
+          <span>{{ item.cantidad }}x {{ item.producto.nombre }}</span>
+          <span>${{ (item.producto.precio * item.cantidad) | number:'1.2-2' }}</span>
+        </div>
+        <div class="ticket-divider"></div>
+        <div class="ticket-row total-row">
+          <span>TOTAL PAGADO</span>
+          <span>${{ total | number:'1.2-2' }}</span>
+        </div>
+      </div>
+
+      <div class="ticket-qr">
+        <img [src]="qrTicketUrl" alt="Código QR del Pedido" crossorigin="anonymous">
+        <p>¡Gracias por preferirnos!</p>
+      </div>
+    </div>
+
+    <div class="ticket-actions">
+      <button class="btn-return" (click)="nuevaCompra()">NUEVA COMPRA</button>
+      <button class="btn-pdf" (click)="descargarPDF()">DESCARGAR FACTURA</button>
+    </div>
+  </div>
+
+</div>

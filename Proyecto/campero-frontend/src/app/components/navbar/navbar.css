@@ -1,0 +1,180 @@
+.navbar {
+  background-color: #a4c01d;
+  /* Verde-Amarillento Campero */
+  padding: 10px 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  font-family: 'Arial', sans-serif;
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-logo img {
+  height: 65px;
+  cursor: pointer;
+  filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.2));
+  margin-right: 550px;
+}
+
+.navbar-menu {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-menu a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 15px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  transition: color 0.2s;
+}
+
+.navbar-menu a:hover,
+.navbar-menu a.active {
+  color: #d3211f;
+  /* Rojo al pasar el mouse */
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.cart-icon {
+  position: relative;
+  cursor: pointer;
+  font-size: 26px;
+  color: #ffffff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.cart-count {
+  position: absolute;
+  top: -8px;
+  right: -12px;
+  background-color: #d3211f;
+  /* Rojo Campero */
+  color: white;
+  border-radius: 50%;
+  padding: 3px 7px;
+  font-size: 12px;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.btn-login,
+.btn-logout {
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-login:hover,
+.btn-logout:hover {
+  background-color: white;
+  color: #a4c01d;
+}
+
+.user-greeting {
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.user-greeting {
+  color: white;
+  font-size: 14px;
+  margin-right: 10px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.user-greeting strong {
+  text-transform: capitalize;
+  /* Pone la primera letra en mayúscula */
+  color: #d3211f;
+  /* Rojo para resaltar el nombre o mantén blanco si prefieres */
+  background: white;
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+
+/* ==========================================
+   RESPONSIVO: NAVBAR
+   ========================================== */
+
+/* Tablets (hasta 1024px) */
+@media (max-width: 1024px) {
+  .navbar-container {
+    padding: 10px 20px;
+  }
+
+  .navbar-menu {
+    gap: 15px;
+  }
+}
+
+/* Teléfonos grandes y pequeños (hasta 768px) */
+@media (max-width: 768px) {
+  .navbar-container {
+    flex-direction: column;
+    gap: 12px;
+    padding: 15px 10px;
+  }
+
+  .navbar-menu {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 0;
+  }
+
+  .navbar-menu li a {
+    font-size: 13px;
+    padding: 6px 12px;
+  }
+
+  .navbar-actions {
+    width: 100%;
+    justify-content: center;
+    margin-top: 5px;
+  }
+}
+
+/* Teléfonos muy pequeños (hasta 480px) */
+@media (max-width: 480px) {
+  .navbar-logo img {
+    height: 45px;
+  }
+
+  /* Ocultamos el saludo para ahorrar espacio visual, pero mantenemos los botones */
+  .user-greeting {
+    display: none;
+  }
+
+  .btn-login,
+  .btn-logout {
+    font-size: 12px;
+    padding: 6px 15px;
+  }
+}

@@ -1,0 +1,19 @@
+/* Colores Campero */
+.navbar { background-color: #a4b01d !important; }
+
+.btn-campero-lg {
+  background: linear-gradient(135deg, #f39200 0%, #ffb347 100%);
+  color: white; border: none; border-radius: 50px;
+  padding: 15px 40px; font-weight: bold; transition: 0.3s;
+}
+
+.btn-campero-lg:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(243, 146, 0, 0.4);
+}
+
+.btn-cart-nav {
+  background-color: white; color: #a4b01d;
+  border: none; border-radius: 15px; padding: 8px 15px;
+  font-weight: bold; transition: 0.3s;
+}

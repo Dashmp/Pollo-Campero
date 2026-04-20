@@ -1,0 +1,117 @@
+<!-- 
+  ============================================================
+  PIE DE PÁGINA (FOOTER) CON REDES SOCIALES
+  ============================================================
+  Este es el pie de página principal de la aplicación.
+  Muestra el logo de Pollo Campero, enlaces a redes sociales
+  y el copyright.
+-->
+
+<!-- 
+  ETIQUETA <footer>: Representa el pie de página de la sección o documento.
+  CLASE "footer-social": Aplica estilos personalizados (fondo rojo, padding, etc.)
+-->
+<footer class="footer-social">
+  
+  <!-- 
+    CONTENEDOR PRINCIPAL
+    - "container": Clase de Bootstrap que centra el contenido y da márgenes responsivos.
+    - "text-center": Clase de Bootstrap que centra todo el texto horizontalmente.
+  -->
+  <div class="container text-center">
+    
+    <!-- 
+      BLOQUE DEL LOGO
+      - "mb-3": Margen inferior de 1rem (16px) gracias a Bootstrap.
+    -->
+    <div class="mb-3">
+      
+      <!-- 
+        IMAGEN DEL LOGO
+        - src: Ruta relativa del logo en formato WebP (más ligero que PNG/JPG).
+        - alt: Texto alternativo para accesibilidad (lectores de pantalla).
+        - class "footer-logo-custom": Clase personalizada que:
+            * Limita el ancho a 200px
+            * Usa mix-blend-mode: screen para eliminar fondo negro
+            * Aplica filtro de brillo y contraste
+      -->
+      <img src="assets/logo/Pollo_Campero_Logo-2024.webp" 
+           alt="Logo Pollo Campero" 
+           class="footer-logo-custom">
+    </div>
+    
+    <!-- 
+      TÍTULO DE LA SECCIÓN DE REDES SOCIALES
+      - "mb-4": Margen inferior de 1.5rem (24px).
+      - "text-white": Texto de color blanco.
+      - "footer-title": Clase personalizada que pone texto en negrita y mayúsculas.
+    -->
+    <h3 class="mb-4 text-white footer-title">¡Síguenos en nuestras redes!</h3>
+    
+    <!-- 
+      CONTENEDOR FLEXIBLE PARA LOS BOTONES DE REDES SOCIALES
+      - "d-flex": Activa Flexbox (distribución flexible).
+      - "justify-content-center": Centra los elementos hijos horizontalmente.
+      - "gap-4": Espacio de 1.5rem (24px) entre cada botón.
+    -->
+    <div class="d-flex justify-content-center gap-4">
+      
+      <!-- 
+        ====================
+        BOTÓN DE FACEBOOK
+        ====================
+        - href: Enlace oficial de Facebook de Pollo Campero.
+        - target="_blank": Abre el enlace en una nueva pestaña del navegador.
+        - class "social-btn": Botón circular blanco con sombra y efecto hover.
+      -->
+      <a href="https://www.facebook.com/share/1G8tTARFXy/" target="_blank" class="social-btn">
+        <!-- 
+          IMAGEN DEL ICONO DE FACEBOOK
+          - "social-img": Clase que hace que la imagen ocupe todo el botón sin deformarse.
+        -->
+        <img src="assets/Logos de redes sociales/Facebook.png" alt="Facebook" class="social-img">
+      </a>
+      
+      <!-- 
+        ====================
+        BOTÓN DE INSTAGRAM
+        ====================
+        - Cuenta oficial de Instagram de Pollo Campero Ecuador (@camperoec)
+      -->
+      <a href="https://www.instagram.com/camperoec" target="_blank" class="social-btn">
+        <img src="assets/Logos de redes sociales/instagram.png" alt="Instagram" class="social-img">
+      </a>
+      
+      <!-- 
+        ====================
+        BOTÓN DE TWITTER (X)
+        ====================
+        - Cuenta oficial de Twitter de Pollo Campero.
+        - NOTA: El archivo de imagen se llama "descargar.png" (podría renombrarse a "twitter.png" por claridad).
+      -->
+      <a href="https://twitter.com/pollocampero" target="_blank" class="social-btn">
+        <img src="assets/Logos de redes sociales/descargar.png" alt="Twitter" class="social-img">
+      </a>
+      
+      <!-- 
+        ====================
+        BOTÓN DE TIKTOK
+        ====================
+        - Cuenta oficial de TikTok de Pollo Campero.
+      -->
+      <a href="https://www.tiktok.com/@pollocampero" target="_blank" class="social-btn">
+        <img src="assets/Logos de redes sociales/TikTok.png" alt="TikTok" class="social-img">
+      </a>
+    </div>
+    
+    <!-- 
+      TEXTO DE COPYRIGHT
+      - "mt-5": Margen superior de 3rem (48px).
+      - "text-white-50": Texto blanco con 50% de opacidad (transparente).
+      - "small": Etiqueta HTML que hace el texto más pequeño (semánticamente es texto secundario).
+      - © 2026: Símbolo de copyright con el año actual.
+    -->
+    <p class="mt-5 text-white-50 small">© 2026 Pollo Campero - El Sabor que nos Une</p>
+  
+  </div>
+</footer>

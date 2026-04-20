@@ -1,0 +1,12 @@
+<app-navbar></app-navbar>
+
+<div class="global-loader-overlay" *ngIf="loadingService.isLoading | async">
+    <div class="spinner-container">
+        <div class="campero-spinner"></div>
+        <p>Cargando el mejor sabor...</p>
+    </div>
+</div>
+
+<router-outlet></router-outlet>
+
+<app-footer></app-footer>

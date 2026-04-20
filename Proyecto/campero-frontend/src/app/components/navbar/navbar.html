@@ -1,0 +1,29 @@
+<nav class="navbar">
+  <div class="navbar-container">
+    <div class="navbar-logo">
+      <img src="assets\logo\Pollo_Campero_Logo-2024.webp" alt="Logo Campero" routerLink="/">
+    </div>
+
+    <ul class="navbar-menu">
+      <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">INICIO</a></li>
+      <li><a routerLink="/productos" routerLinkActive="active">MENÚ</a></li>
+      <li><a routerLink="/carrito" routerLinkActive="active">CARRITO</a></li>
+    </ul>
+
+    <div class="navbar-actions">
+      <div class="cart-icon" routerLink="/carrito">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count" *ngIf="cartCount > 0">{{ cartCount }}</span>
+      </div>
+
+      <ng-container *ngIf="!authService.isLoggedIn()">
+        <button class="btn-login" routerLink="/login">INGRESAR</button>
+      </ng-container>
+
+      <ng-container *ngIf="authService.isLoggedIn()">
+        <button class="btn-logout" (click)="authService.logout()">SALIR</button>
+        <span class="user-greeting">Hola, <strong>{{ authService.getUserName() }}</strong></span>
+      </ng-container>
+    </div>
+  </div>
+</nav>

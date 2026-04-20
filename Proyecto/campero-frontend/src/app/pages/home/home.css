@@ -1,0 +1,160 @@
+/* ============================================================
+   ESTILOS DEL CARRUSEL PRINCIPAL
+   ============================================================ */
+
+/* --- SOLUCIÓN CARRUSEL (Flecha Roja) --- */
+/* 
+  Este bloque soluciona problemas de visualización del carrusel
+  de imágenes promocionales en la página principal.
+*/
+
+/* 
+  ID: #camperoCarousel
+  Propósito: Contenedor principal del carrusel de imágenes
+  Uso: Carrusel de promociones en la página de inicio
+*/
+#camperoCarousel {
+  height: 400px;                    /* Altura fija de 400 píxeles */
+  position: relative;               /* Posicionamiento relativo para elementos hijos absolutos */
+  overflow: hidden;                 /* Oculta cualquier desbordamiento de contenido */
+  background-color: #ff6b00;        /* Fondo color corporativo naranja (para que no se vea blanco 
+                                        mientras cargan las imágenes o si hay espacios vacíos) */
+}
+
+/* 
+  CLASE: .carousel-img-fill
+  Propósito: Imágenes dentro del carrusel que deben llenar todo el espacio
+  Sin bordes blancos ni espacios vacíos alrededor
+*/
+.carousel-img-fill {
+  width: 100%;                      /* Ancho completo del contenedor padre */
+  height: 400px;                    /* Altura fija de 400px (coincide con el contenedor) */
+  object-fit: cover;                /* La imagen cubre TODO el espacio disponible:
+                                        - Se recorta si es necesario
+                                        - No deja bordes blancos
+                                        - Mantiene la proporción */
+  object-position: center;          /* Centra el punto de enfoque de la imagen */
+  display: block;                   /* Elimina espacios extra debajo de la imagen (inline por defecto) */
+}
+
+/* ============================================================
+   SOLUCIÓN PARA LOGOS CON FONDO FALSO PNG
+   ============================================================ */
+
+/* --- SOLUCIÓN LOGO FALSO PNG (Flecha Verde) --- */
+/* 
+  Este bloque resuelve el problema de imágenes PNG que tienen
+  fondos falsos (cuadros grises o blancos no transparentes)
+*/
+
+/* 
+  CLASE: .main-img
+  Propósito: Imágenes principales que tienen fondos no transparentes
+  (como logos o productos con fondo blanco/cuadrado)
+  Uso: Logos de categorías, imágenes de productos con fondo falso
+*/
+.main-img {
+  max-width: 100%;                  /* Ancho máximo del contenedor padre */
+  height: auto;                     /* Altura automática (mantiene proporción) */
+  
+  /* 
+    Este filtro ayuda a disimular los cuadros grises de fondos falsos
+    Añade una sombra suave que ayuda a integrar la imagen con el fondo
+  */
+  filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1)); 
+  
+  /* 
+    mix-blend-mode: multiply - Esta propiedad hace que el blanco/gris claro 
+    se vuelva transparente, mezclándose con el fondo subyacente
+    Útil para imágenes PNG con fondo blanco que deberían ser transparentes
+  */
+  mix-blend-mode: multiply; /* Esto hace que el blanco/gris claro se vuelva transparente */
+}
+
+/* ============================================================
+   BOTONES Y OTROS ESTILOS
+   ============================================================ */
+
+/* 
+  CLASE: .btn-conocenos
+  Propósito: Botón estilizado para la sección "Conócenos" o llamada a la acción
+  Estilo: Borde azul con relleno transparente, efecto hover invertido
+*/
+.btn-conocenos {
+  text-decoration: none;            /* Elimina subrayado del enlace */
+  color: #0056b3;                   /* Texto azul oscuro */
+  font-weight: 700;                 /* Negrita (700 = bold) */
+  padding: 10px 25px;               /* Espaciado: 10px arriba/abajo, 25px izquierda/derecha */
+  border: 2px solid #0056b3;        /* Borde azul de 2px */
+  border-radius: 8px;               /* Bordes ligeramente redondeados */
+  transition: all 0.3s ease;        /* Animación suave para todas las propiedades */
+  text-transform: uppercase;        /* Texto en MAYÚSCULAS */
+  display: inline-flex;             /* Flex en línea para alinear íconos si los hay */
+  align-items: center;              /* Centra verticalmente el contenido */
+}
+
+/* 
+  ESTADO HOVER: Botón Conócenos
+  Cambia a fondo azul con texto blanco y se eleva ligeramente
+*/
+.btn-conocenos:hover {
+  background-color: #0056b3;        /* Fondo azul sólido */
+  color: white !important;          /* Texto blanco (con !important para sobreescribir) */
+  transform: translateY(-2px);      /* Se desplaza 2px hacia arriba */
+}
+
+/* 
+  CLASE: .text-campero
+  Propósito: Texto con el color corporativo de Pollo Campero
+  Uso: Títulos, precios, elementos destacados
+*/
+.text-campero { color: #ff6b00; }   /* Naranja Campero corporativo */
+
+/* 
+  CLASE: .badge-promo
+  Propósito: Etiqueta/insignia para promociones y ofertas especiales
+  Estilo: Fondo rojo intenso con texto blanco y bordes redondeados
+*/
+.badge-promo { 
+  background-color: #d32f2f;        /* Rojo intenso (también usado en footer) */
+  color: white;                     /* Texto blanco para contraste */
+  padding: 6px 16px;                /* Espaciado: 6px arriba/abajo, 16px izquierda/derecha */
+  border-radius: 20px;              /* Bordes muy redondeados (efecto píldora) */
+  font-weight: bold;                /* Texto en negrita */
+}
+
+/* 
+  CLASE: .btn-campero-lg (Large)
+  Propósito: Botón grande con estilo corporativo de Pollo Campero
+  Uso: Botones principales de acción (ej: "Ordenar ahora", "Ver promociones")
+*/
+.btn-campero-lg { 
+  background-color: #ff6b00;        /* Naranja Campero corporativo */
+  color: white;                     /* Texto blanco */
+  border: none;                     /* Sin borde */
+  padding: 12px 30px;               /* Espaciado más grande: 12px arriba/abajo, 30px izquierda/derecha */
+  border-radius: 8px;              /* Bordes ligeramente redondeados */
+  font-weight: bold;                /* Texto en negrita */
+  box-shadow: 0 4px 10px rgba(255, 107, 0, 0.2); /* Sombra naranja difuminada:
+                                                     - 0px horizontal
+                                                     - 4px vertical
+                                                     - 10px difuminado
+                                                     - naranja 20% opacidad */
+}
+
+/* ============================================================
+   MEDIA QUERY (RESPONSIVE)
+   ============================================================ */
+
+/* 
+  MEDIA QUERY: Pantallas de hasta 768px (tablets y móviles)
+  Reduce la altura del carrusel para dispositivos pequeños
+*/
+@media (max-width: 768px) {
+  
+  /* En móviles, el carrusel y las imágenes se reducen a 250px de altura */
+  #camperoCarousel, 
+  .carousel-img-fill { 
+    height: 250px;                  /* Altura reducida para móviles (ahorra espacio vertical) */
+  }
+}

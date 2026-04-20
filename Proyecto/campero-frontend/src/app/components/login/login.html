@@ -1,0 +1,51 @@
+<div class="login-wrapper">
+  <div class="login-card">
+    <div class="login-header">
+      <h2>¡HOLA, CAMPERO!</h2>
+      <p>Ingresa tus datos para continuar</p>
+    </div>
+
+    <div class="alert-box error" *ngIf="errorMessage">
+      <i class="fas fa-exclamation-circle"></i> {{ errorMessage }}
+    </div>
+    <div class="alert-box success" *ngIf="successMessage">
+      <i class="fas fa-check-circle"></i> {{ successMessage }}
+    </div>
+
+    <form #loginForm="ngForm" (submit)="onLogin($event, loginForm)" class="login-form">
+      
+      <div class="form-group">
+        <label>Correo Electrónico</label>
+        <input type="email" name="email" [(ngModel)]="credentials.email" 
+               #email="ngModel" required email 
+               [class.input-error]="email.invalid && email.touched">
+        <small class="validation-text" *ngIf="email.invalid && email.touched">
+          Ingresa un correo electrónico válido.
+        </small>
+      </div>
+
+      <div class="form-group">
+        <label>Contraseña</label>
+        <div class="password-container">
+          <input [type]="showPassword ? 'text' : 'password'" name="password" 
+                 [(ngModel)]="credentials.password" #password="ngModel" required
+                 [class.input-error]="password.invalid && password.touched">
+          <button type="button" class="btn-toggle-pass" (click)="togglePassword()">
+            <i class="fas" [ngClass]="showPassword ? 'fa-eye-slash' : 'fa-eye'"></i>
+          </button>
+        </div>
+        <small class="validation-text" *ngIf="password.invalid && password.touched">
+          La contraseña es obligatoria.
+        </small>
+      </div>
+
+      <button type="submit" class="btn-submit-login" [disabled]="loginForm.invalid && loginForm.touched">
+        INICIAR SESIÓN
+      </button>
+    </form>
+    
+    <div class="login-footer">
+      <span>¿No tienes cuenta? <a routerLink="/registro">Regístrate aquí</a></span>
+    </div>
+  </div>
+</div>

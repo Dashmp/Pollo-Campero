@@ -1,0 +1,57 @@
+/* Estilos para la sección del pie de página con redes sociales */
+.footer-social {
+  background-color: #d32f2f;  /* Color rojo intenso característico de Pollo Campero */
+  padding: 60px 0 30px;       /* Espaciado superior de 60px y inferior de 30px */
+}
+
+/* SOLUCIÓN PARA EL LOGO QUE SE VEÍA MAL (Flecha Verde) */
+/* Este bloque resuelve un problema visual con el logo que tenía fondo negro */
+.footer-logo-custom {
+  max-width: 200px;           /* Ancho máximo de 200 píxeles */
+  height: auto;               /* Altura automática para mantener proporción */
+  display: block;             /* Comportamiento de bloque para centrado */
+  margin: 0 auto;             /* Centrado horizontal automático */
+  
+  /* TRUCO: 'screen' hace que el fondo negro de tu imagen sea transparente */
+  /* mix-blend-mode: screen elimina el fondo oscuro mezclándolo con el fondo rojo */
+  mix-blend-mode: screen; 
+  
+  /* Ajuste de brillo para que resalten los colores */
+  /* Aumenta brillo y contraste para mejorar visibilidad sobre fondo rojo */
+  filter: brightness(1.1) contrast(1.1);
+}
+
+/* Iconos de Redes Sociales (Círculos blancos) */
+/* Estilos para los botones circulares que contienen iconos de redes sociales */
+.social-btn {
+  width: 50px;                /* Ancho fijo de 50 píxeles */
+  height: 50px;               /* Alto fijo de 50 píxeles */
+  background-color: white;    /* Fondo blanco para el círculo */
+  border-radius: 50%;         /* Borde redondeado al 50% = círculo perfecto */
+  display: flex;              /* Flexbox para centrar contenido interno */
+  align-items: center;        /* Centrado vertical del icono */
+  justify-content: center;    /* Centrado horizontal del icono */
+  overflow: hidden;           /* Oculta cualquier desbordamiento del contenido */
+  transition: transform 0.3s ease;  /* Animación suave al hacer hover (0.3 segundos) */
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);  /* Sombra sutil: 0px horizontal, 4px vertical, 6px blur, negro 10% opaco */
+  padding: 10px;              /* Espaciado interno de 10 píxeles */
+}
+
+/* Estilos para las imágenes de los iconos sociales dentro del botón */
+.social-img {
+  width: 100%;                /* Ocupa todo el ancho del botón */
+  height: 100%;               /* Ocupa todo el alto del botón */
+  object-fit: contain;        /* La imagen se ajusta sin deformarse, manteniendo proporción */
+}
+
+/* Efecto al pasar el mouse sobre el botón social */
+.social-btn:hover {
+  transform: translateY(-5px);  /* Levanta el botón 5 píxeles hacia arriba */
+  background-color: #f8f9fa;    /* Cambia el fondo a un blanco ligeramente grisáceo */
+}
+
+/* Estilos para los títulos del pie de página */
+.footer-title {
+  font-weight: bold;          /* Texto en negrita */
+  text-transform: uppercase;  /* Convierte todo el texto a MAYÚSCULAS */
+}

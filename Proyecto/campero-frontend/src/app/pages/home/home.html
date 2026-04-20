@@ -1,0 +1,177 @@
+<!-- ============================================================
+     PÁGINA PRINCIPAL (HOME) - POLLO CAMPERO
+     ============================================================
+     Esta es la página de inicio de la aplicación.
+     Contiene un carrusel de promociones y una sección hero
+     con el mensaje principal de la marca.
+-->
+
+<!-- 
+  CONTENEDOR PRINCIPAL DE LA PÁGINA DE INICIO
+  - "home-wrapper": Clase personalizada que envuelve todo el contenido
+-->
+<main class="home-wrapper">
+  
+  <!-- ============================================================
+       SECCIÓN: CARRUSEL DE PROMOCIONES
+       ============================================================ -->
+  <!-- 
+    SECCIÓN: Carrusel de imágenes promocionales
+    CLASES:
+    - "container": Contenedor responsivo de Bootstrap
+    - "pt-4": Padding superior de 1.5rem (24px)
+    - "mb-4": Margen inferior de 1.5rem (24px)
+  -->
+  <section class="container pt-4 mb-4">
+    
+    <!-- 
+      FILA Y COLUMNA PARA CENTRAR EL CARRUSEL
+      - "row": Fila de Bootstrap
+      - "justify-content-center": Centra horizontalmente las columnas
+    -->
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-10">
+        <div id="camperoCarousel" class="carousel slide carousel-fade shadow-sm rounded-4 overflow-hidden"
+          data-bs-ride="carousel" data-bs-interval="3000">
+
+          <div class="carousel-inner">
+            
+            <!-- 
+              ITEM ACTIVO (Primera imagen)
+              - "carousel-item": Cada elemento del carrusel
+              - "active": Indica cuál es el visible inicialmente
+            -->
+            <div class="carousel-item active">
+              <!-- 
+                IMAGEN DEL CARRUSEL
+                - "d-block": Display block (elimina espacios extra)
+                - "carousel-img-fill": Clase personalizada (object-fit: cover, altura fija 400px)
+              -->
+              <img src="assets/Carrucel/combo.webp" class="d-block carousel-img-fill" alt="Promo 1">
+            </div>
+            
+            <!-- Segunda imagen del carrusel -->
+            <div class="carousel-item">
+              <img src="assets/Carrucel/nuevo carrucel.jpeg" class="d-block carousel-img-fill" alt="Promo 2">
+            </div>
+            
+            <!-- Tercera imagen del carrusel -->
+            <div class="carousel-item">
+              <img src="assets/Carrucel/nuevo carrucel2.jpeg" class="d-block carousel-img-fill" alt="Promo 3">
+            </div>
+            
+            <!-- Cuarta imagen del carrusel -->
+            <div class="carousel-item">
+              <img src="assets/Carrucel/nuevo carrucel3.jpg" class="d-block carousel-img-fill" alt="Promo 4">
+            </div>
+          </div>
+
+          <!-- 
+            BOTÓN ANTERIOR (PREV)
+            - "carousel-control-prev": Estilo y comportamiento de Bootstrap
+            - data-bs-target: Apunta al ID del carrusel que controla
+            - data-bs-slide="prev": Indica que debe ir a la imagen anterior
+          -->
+          <button class="carousel-control-prev" type="button" data-bs-target="#camperoCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>  <!-- Ícono de flecha izquierda -->
+          </button>
+          
+          <!-- 
+            BOTÓN SIGUIENTE (NEXT)
+            - "carousel-control-next": Estilo y comportamiento de Bootstrap
+            - data-bs-slide="next": Indica que debe ir a la siguiente imagen
+          -->
+          <button class="carousel-control-next" type="button" data-bs-target="#camperoCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>  <!-- Ícono de flecha derecha -->
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECCIÓN HERO (PRINCIPAL)
+       ============================================================ -->
+  <!-- 
+    SECCIÓN HERO: Mensaje principal de bienvenida y llamado a la acción
+    - "hero-section": Clase personalizada para estilos de la sección hero
+  -->
+  <section class="hero-section">
+    
+    <!-- Contenedor responsivo de Bootstrap -->
+    <div class="container">
+      
+      <!-- 
+        FILA CON ALINEACIÓN VERTICAL
+        - "row": Fila de Bootstrap
+        - "align-items-center": Centra verticalmente el contenido (imagen y texto)
+        - "py-4": Padding vertical de 1.5rem (24px)
+      -->
+      <div class="row align-items-center py-4">
+        
+        <!-- ============================================================
+             COLUMNA IZQUIERDA: TEXTO Y BOTONES
+             ============================================================ -->
+        <!-- 
+          COLUMNA DE CONTENIDO (TEXTO)
+          - "col-lg-6": En pantallas grandes ocupa 6 columnas (50%)
+          - "text-center": Texto centrado por defecto
+          - "text-lg-start": En pantallas grandes, texto alineado a la izquierda
+          - "hero-content": Clase personalizada para estilos del contenido
+          - "order-2 order-lg-1": En móviles es el segundo elemento, en desktop el primero
+        -->
+        <div class="col-lg-6 text-center text-lg-start hero-content order-2 order-lg-1">
+          
+          <!-- 
+            INSIGNIA DE BIENVENIDA
+            - "badge-promo": Clase personalizada (fondo rojo, texto blanco, bordes redondeados)
+            - Texto: "¡Bienvenido a la Familia!" - Mensaje cálido de bienvenida
+          -->
+          <span class="badge-promo">¡Bienvenido a la Familia!</span>
+          
+          <!-- 
+            TÍTULO PRINCIPAL
+            - "hero-title": Clase personalizada para estilos del título
+            - "fw-bold": Negrita de Bootstrap
+            - "mt-3": Margen superior de 1rem (16px)
+            - "text-dark": Texto gris oscuro
+            <br>: Salto de línea
+            - "text-campero": Clase personalizada con color naranja corporativo
+            🍗: Emoji de pata de pollo (detalle visual)
+          -->
+          <h1 class="hero-title fw-bold mt-3 text-dark">
+            El sabor que <br> <span class="text-campero">nos une</span> 🍗
+          </h1>
+          
+          <!-- 
+            DESCRIPCIÓN
+            - "hero-description": Clase personalizada para estilos
+            - "text-secondary": Texto gris secundario de Bootstrap
+            - "mb-4": Margen inferior de 1.5rem (24px)
+          -->
+          <p class="hero-description text-secondary mb-4">
+            Disfruta del pollo más tierno, jugoso y crujiente de Ecuador.
+          </p>
+          <div
+            class="d-flex flex-column flex-sm-row gap-3 justify-content-center justify-content-lg-start align-items-center">
+            <button class="btn-campero-lg" (click)="irAlMenu()">VER EL MENÚ</button>
+
+            <a href="https://www.tiktok.com/@pollocampero" class="btn-conocenos">CONÓCENOS</a>
+          </div>
+        </div>
+
+        <div class="col-lg-6 text-center order-1 order-lg-2 mb-4 mb-lg-0">
+          
+          <!-- 
+            IMAGEN DE CAMARERO / LOGO
+            - src: Ruta de la imagen "camperos.jpg"
+            - alt: Texto alternativo "Logo Campero"
+            - "img-fluid": Bootstrap - imagen responsiva (se escala con el contenedor)
+            - "main-img": Clase personalizada (mix-blend-mode: multiply para eliminar fondo blanco)
+          -->
+          <img src="assets/logo/campero-removebg-preview.png" alt="Logo Campero" class="img-fluid main-img">
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

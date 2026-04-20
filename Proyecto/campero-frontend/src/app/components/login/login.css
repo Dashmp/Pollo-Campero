@@ -1,0 +1,187 @@
+.login-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  background-color: #f9f9f9;
+  font-family: 'Arial', sans-serif;
+  padding: 20px;
+}
+
+.login-card {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.login-header h2 {
+  color: #d3211f;
+  /* Rojo Campero */
+  margin-bottom: 5px;
+  font-size: 28px;
+  font-weight: 900;
+}
+
+.login-header p {
+  color: #555;
+  margin-bottom: 25px;
+  font-size: 14px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 15px;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #fca311;
+}
+
+.btn-submit-login {
+  width: 100%;
+  padding: 14px;
+  background-color: #d3211f;
+  /* Rojo Campero */
+  color: white;
+  border: none;
+  border-radius: 30px;
+  /* Forma de píldora */
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 10px;
+  box-shadow: 0 4px 6px rgba(211, 33, 31, 0.3);
+  margin-bottom: 10px;
+}
+
+.btn-submit-login:hover {
+  background-color: #b01a18;
+}
+
+/* --- Mensajes de Alerta --- */
+.alert-box {
+  padding: 12px 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  animation: fadeIn 0.3s ease;
+}
+
+.alert-box.error {
+  background-color: #ffebeb;
+  color: #d3211f;
+  border: 1px solid #f5c2c7;
+}
+
+.alert-box.success {
+  background-color: #d1e7dd;
+  color: #0f5132;
+  border: 1px solid #badbcc;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- Contenedor de Contraseña y Ojo --- */
+.password-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-container input {
+  padding-right: 40px !important;
+  /* Deja espacio para el ojo */
+}
+
+.btn-toggle-pass {
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
+  color: #888;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 5px;
+  transition: color 0.2s;
+}
+
+.btn-toggle-pass:hover {
+  color: #fca311;
+  /* Se pinta de naranja al pasar el mouse */
+}
+
+/* --- Validaciones en tiempo real --- */
+.validation-text {
+  color: #d3211f;
+  /* Rojo campero */
+  font-size: 12px;
+  margin-top: 5px;
+  display: block;
+}
+
+.input-error {
+  border-color: #d3211f !important;
+  background-color: #fffafa;
+}
+
+/* ==========================================
+   RESPONSIVO: LOGIN
+   ========================================== */
+
+/* Teléfonos (hasta 768px) */
+@media (max-width: 768px) {
+  .login-card {
+    width: 90%;
+    padding: 30px 20px;
+    margin: 20px auto;
+  }
+
+  .login-header h2 {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn-submit {
+    padding: 12px;
+    font-size: 15px;
+  }
+}

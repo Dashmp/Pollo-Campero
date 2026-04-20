@@ -1,0 +1,66 @@
+<div class="login-wrapper">
+    <div class="login-card">
+        <div class="login-header">
+            <h2>¡ÚNETE A LA FAMILIA!</h2>
+            <p>Crea tu cuenta para pedir tus combos favoritos</p>
+        </div>
+
+        <div class="alert-box error" *ngIf="errorMessage">
+            <i class="fas fa-exclamation-circle"></i> {{ errorMessage }}
+        </div>
+        <div class="alert-box success" *ngIf="successMessage">
+            <i class="fas fa-check-circle"></i> {{ successMessage }}
+        </div>
+
+        <form #registroForm="ngForm" (submit)="onRegister($event, registroForm)" class="login-form">
+
+            <div class="form-group">
+                <label>Nombre de Usuario</label>
+                <input type="text" name="username" [(ngModel)]="user.username" #username="ngModel" required
+                    pattern="^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$" [class.input-error]="username.invalid && username.touched">
+                <small class="validation-text" *ngIf="username.errors?.['required'] && username.touched">
+                    El nombre es obligatorio.
+                </small>
+                <small class="validation-text" *ngIf="username.errors?.['pattern'] && username.touched">
+                    Solo se permiten letras y espacios.
+                </small>
+            </div>
+
+            <div class="form-group">
+                <label>Correo Electrónico</label>
+                <input type="email" name="email" [(ngModel)]="user.email" #email="ngModel" required email
+                    [class.input-error]="email.invalid && email.touched">
+                <small class="validation-text" *ngIf="email.invalid && email.touched">
+                    Ingresa un correo electrónico válido.
+                </small>
+            </div>
+
+            <div class="form-group">
+                <label>Contraseña</label>
+                <div class="password-container">
+                    <input [type]="showPassword ? 'text' : 'password'" name="password" [(ngModel)]="user.password"
+                        #password="ngModel" required
+                        pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{6,}$"
+                        [class.input-error]="password.invalid && password.touched">
+                    <button type="button" class="btn-toggle-pass" (click)="togglePassword()">
+                        <i class="fas" [ngClass]="showPassword ? 'fa-eye-slash' : 'fa-eye'"></i>
+                    </button>
+                </div>
+                <small class="validation-text" *ngIf="password.errors?.['required'] && password.touched">
+                    La contraseña es obligatoria.
+                </small>
+                <small class="validation-text" *ngIf="password.errors?.['pattern'] && password.touched">
+                    Mín. 6 caracteres. Debe incluir letras, números y un símbolo especial (@$!%*#?&).
+                </small>
+            </div>
+
+            <button type="submit" class="btn-submit-login" [disabled]="registroForm.invalid && registroForm.touched">
+                REGISTRARME
+            </button>
+        </form>
+
+        <div class="login-footer">
+            <span>¿Ya tienes cuenta? <a routerLink="/login">Inicia sesión aquí</a></span>
+        </div>
+    </div>
+</div>
